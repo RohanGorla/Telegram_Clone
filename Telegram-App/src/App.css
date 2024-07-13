@@ -1,0 +1,16 @@
+body {
+  background-color: black;
+  color: white;
+}
+
+.main {
+  display: flex;
+}
+
+.chat-list {
+  width: 50%;
+}
+
+.chat-message {
+  width: 50%;
+}
