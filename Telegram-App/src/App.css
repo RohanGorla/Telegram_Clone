@@ -10,6 +10,64 @@ body {
   display: none;
 }
 
+nav {
+  padding: 10px 0;
+}
+
+.hamburger-button {
+  position: absolute;
+  top: 0;
+  width: 40px;
+  height: 40px
+}
+
+.hamburger {
+  display: block;
+  width: 20px;
+  height: 4px;
+  position: relative;
+  top: 18px;
+  left: 10px;
+  background-color: red;
+}
+
+.hamburger::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 4px;
+  transform: translate(0px, 4px);
+  background-color: red;
+}
+
+.hamburger::before {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 4px;
+  transform: translate(0px, -8px);
+  background-color: red;
+}
+
+.sidebar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 300px;
+  height: 100vh;
+  background-color: steelblue;
+  transition: all .2s ease-in-out;
+}
+
+.sidebar-show {
+
+}
+
+.sidebar-hide {
+  transform: translate(-300px, 0px);
+}
+
 @media (min-width: 500px) {
   .main {
     display: flex;
@@ -21,6 +79,10 @@ body {
   
   .chat-message {
     width: 80%;
+  }
+
+  .d-none {
+    display: block;
   }
   
   .hide {

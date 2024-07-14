@@ -6,6 +6,7 @@ function App() {
   const [message, setMessage] = useState([]);
   const [chatId, setChatId] = useState();
   const [show, setShow] = useState(true);
+  const [sidebarShow, setSidebarShow] = useState(false);
 
   useEffect(() => {
     async function fetchData() {
@@ -40,12 +41,44 @@ function App() {
   return (
     <div className="Telegram-main">
       <nav className="navbar">
-        <div className="hamburger-button">
+        <div
+          className="hamburger-button"
+          onClick={() => {
+            setSidebarShow(!sidebarShow);
+          }}
+        >
           <span className="hamburger"></span>
         </div>
-        <div className="logo"></div>
+        <div className="logo">
+          <h1 style={{ textAlign: "center" }}>TELEGRAM</h1>
+        </div>
         <div className="search-button"></div>
       </nav>
+      <section
+        className={
+          sidebarShow ? "sidebar sidebar-show" : "sidebar sidebar-hide"
+        }
+      >
+        <div
+          className="cross-button"
+          onClick={() => {
+            setSidebarShow(!sidebarShow);
+          }}
+        >
+          back
+        </div>
+        <p>sidebar</p>
+        <p>sidebar</p>
+        <p>sidebar</p>
+        <p>sidebar</p>
+        <p>sidebar</p>
+        <p>sidebar</p>
+        <p>sidebar</p>
+        <p>sidebar</p>
+        <p>sidebar</p>
+        <p>sidebar</p>
+        <p>sidebar</p>
+      </section>
       <section className="main">
         <div className="chat-list">
           {page.map((page) => {
