@@ -3,14 +3,27 @@ body {
   color: white;
 }
 
-.main {
+/* .main {
   display: flex;
+} */
+.d-none {
+  display: none;
 }
 
-.chat-list {
-  width: 50%;
-}
+@media (min-width: 500px) {
+  .main {
+    display: flex;
+  }
 
-.chat-message {
-  width: 50%;
+  .chat-list {
+    width: 20%;
+  }
+  
+  .chat-message {
+    width: 80%;
+  }
+  
+  .hide {
+    display: none;
+  }
 }
