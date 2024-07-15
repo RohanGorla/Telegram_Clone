@@ -282,6 +282,7 @@ function App() {
                           padding: "15px 10px",
                           borderRadius: "10px",
                           backgroundColor: "rgb(20, 20, 20)",
+                          color:'white',
                           maxWidth: "60%",
                           alignSelf: "end",
                         }
@@ -290,6 +291,7 @@ function App() {
                           padding: "15px 10px",
                           borderRadius: "10px",
                           backgroundColor: "rgb(20, 20, 20)",
+                          color:'white',
                           maxWidth: "60%",
                         }
                   }
