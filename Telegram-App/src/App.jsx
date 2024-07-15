@@ -7,6 +7,7 @@ function App() {
   const [chatId, setChatId] = useState();
   const [show, setShow] = useState(true);
   const [sidebarShow, setSidebarShow] = useState(false);
+  const [mode, setMode] = useState(false);
 
   useEffect(() => {
     async function fetchData() {
@@ -39,7 +40,7 @@ function App() {
   }, [chatId]);
 
   return (
-    <div className="Telegram-main">
+    <div className={mode ? "Telegram-main light" : "Telegram-main dark"}>
       <nav className="navbar">
         <div
           className="hamburger-button"
@@ -52,32 +53,42 @@ function App() {
         <div className="logo">
           <h1 style={{ textAlign: "center" }}>TELEGRAM</h1>
         </div>
-        <div className="search-button"></div>
       </nav>
       <section
         className={
           sidebarShow ? "sidebar sidebar-show" : "sidebar sidebar-hide"
         }
       >
-        <div
-          className="cross-button"
-          onClick={() => {
-            setSidebarShow(!sidebarShow);
-          }}
-        >
-          back
+        <div className="sidebar-button">
+          <div
+            className="back-button"
+            onClick={() => {
+              setSidebarShow(!sidebarShow);
+            }}
+          >
+            back
+          </div>
+          <div
+            className="light-dark-button"
+            onClick={() => {
+              setMode(!mode);
+            }}
+          >
+            mode
+          </div>
         </div>
-        <p>sidebar</p>
-        <p>sidebar</p>
-        <p>sidebar</p>
-        <p>sidebar</p>
-        <p>sidebar</p>
-        <p>sidebar</p>
-        <p>sidebar</p>
-        <p>sidebar</p>
-        <p>sidebar</p>
-        <p>sidebar</p>
-        <p>sidebar</p>
+
+        <div className="sidebar-options">
+          <p style={{margin:'8px 0', textAlign:'center'}}>My Profile</p>
+          <p style={{margin:'8px 0', textAlign:'center'}}>New Group</p>
+          <p style={{margin:'8px 0', textAlign:'center'}}>Contacts</p>
+          <p style={{margin:'8px 0', textAlign:'center'}}>Calls</p>
+          <p style={{margin:'8px 0', textAlign:'center'}}>People Nearby</p>
+          <p style={{margin:'8px 0', textAlign:'center'}}>saved Messages</p>
+          <p style={{margin:'8px 0', textAlign:'center'}}>Settings</p>
+          <p style={{margin:'8px 0', textAlign:'center'}}>Invite Friends</p>
+          <p style={{margin:'8px 0', textAlign:'center'}}>Telegram Features</p>
+        </div>
       </section>
       <section className="main">
         <div className="chat-list">
@@ -86,7 +97,7 @@ function App() {
               if (page.creator.name) {
                 return (
                   <div
-                    style={{ border: "white 1px solid", margin: "10px 5px" }}
+                    style={{ border: "white 1px solid", margin: "10px 5px", cursor:'pointer' }}
                     className={show ? "list" : "d-none"}
                     key={index}
                     onClick={() => {

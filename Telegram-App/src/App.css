@@ -1,4 +1,9 @@
-body {
+.light {
+  background-color: white;
+  color: black;
+}
+
+.dark {
   background-color: black;
   color: white;
 }
@@ -29,6 +34,7 @@ nav {
   top: 18px;
   left: 10px;
   background-color: red;
+  cursor: pointer;
 }
 
 .hamburger::after {
@@ -58,6 +64,16 @@ nav {
   height: 100vh;
   background-color: steelblue;
   transition: all .2s ease-in-out;
+}
+
+.sidebar-button {
+  display: flex;
+  justify-content: space-between;
+}
+
+.sidebar-button .back-button, .light-dark-button {
+  margin: 0px 20px;
+  cursor: pointer;
 }
 
 .sidebar-show {
