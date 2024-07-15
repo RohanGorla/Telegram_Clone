@@ -1,29 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+  font-family: "Public Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.Telegram-main {
+  min-height: 100%;
+}
+
 .light {
   background-color: white;
   color: black;
 }
 
 .dark {
-  background-color: black;
+  background-color: rgb(23, 30, 36);
   color: white;
 }
 
-/* .main {
-  display: flex;
-} */
 .d-none {
   display: none;
 }
 
 nav {
   padding: 10px 0;
+  position: fixed;
+  width: 100%;
+  top: 0;
+}
+
+.nav-light {
+  background-color: rgb(27, 145, 207);
+}
+
+.nav-dark {
+  background-color: rgb(56, 72, 86);
 }
 
 .hamburger-button {
   position: absolute;
   top: 0;
   width: 40px;
-  height: 40px
+  height: 40px;
+  cursor: pointer;
+  border-radius: 50%;
 }
 
 .hamburger {
@@ -33,8 +56,7 @@ nav {
   position: relative;
   top: 18px;
   left: 10px;
-  background-color: red;
-  cursor: pointer;
+  background-color: white;
 }
 
 .hamburger::after {
@@ -43,7 +65,7 @@ nav {
   width: 100%;
   height: 4px;
   transform: translate(0px, 4px);
-  background-color: red;
+  background-color: white;
 }
 
 .hamburger::before {
@@ -52,11 +74,11 @@ nav {
   width: 100%;
   height: 4px;
   transform: translate(0px, -8px);
-  background-color: red;
+  background-color: white;
 }
 
 .sidebar {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   z-index: 1;
@@ -74,7 +96,20 @@ nav {
 .sidebar-button .back-button, .light-dark-button {
   margin: 0px 20px;
   cursor: pointer;
+  width: 30px;
 }
+
+.chat-back-button {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: white;
+  cursor: pointer;
+}
+
+/* .light-dark-button {
+  width: 30px;
+} */
 
 .sidebar-show {
 
@@ -82,6 +117,10 @@ nav {
 
 .sidebar-hide {
   transform: translate(-300px, 0px);
+}
+
+.main {
+  margin-top: 45px;
 }
 
 @media (min-width: 500px) {
