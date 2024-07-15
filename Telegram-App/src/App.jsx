@@ -8,6 +8,8 @@ function App() {
   const [show, setShow] = useState(true);
   const [sidebarShow, setSidebarShow] = useState(false);
   const [mode, setMode] = useState(false);
+  const [active, setActive] = useState();
+  const [current, setCurrent] = useState();
 
   useEffect(() => {
     async function fetchData() {
@@ -68,7 +70,7 @@ function App() {
           >
             <img
               style={{ width: "100%" }}
-              src="https://cdn.iconscout.com/icon/free/png-256/free-back-arrow-1767515-1502579.png"
+              src="https://svgsilh.com/svg/1727490.svg"
             ></img>
           </div>
           <div
@@ -87,50 +89,94 @@ function App() {
             ></img>
           </div>
         </div>
-
         <div className="sidebar-options">
           <p
-            style={{ margin: "8px 0", textAlign: "center", cursor: "pointer" }}
+            style={{
+              fontSize: "20px",
+              margin: "1em 0",
+              textAlign: "center",
+              cursor: "pointer",
+            }}
           >
             My Profile
           </p>
           <p
-            style={{ margin: "8px 0", textAlign: "center", cursor: "pointer" }}
+            style={{
+              fontSize: "20px",
+              margin: "1em 0",
+              textAlign: "center",
+              cursor: "pointer",
+            }}
           >
             New Group
           </p>
           <p
-            style={{ margin: "8px 0", textAlign: "center", cursor: "pointer" }}
+            style={{
+              fontSize: "20px",
+              margin: "1em 0",
+              textAlign: "center",
+              cursor: "pointer",
+            }}
           >
             Contacts
           </p>
           <p
-            style={{ margin: "8px 0", textAlign: "center", cursor: "pointer" }}
+            style={{
+              fontSize: "20px",
+              margin: "1em 0",
+              textAlign: "center",
+              cursor: "pointer",
+            }}
           >
             Calls
           </p>
           <p
-            style={{ margin: "8px 0", textAlign: "center", cursor: "pointer" }}
+            style={{
+              fontSize: "20px",
+              margin: "1em 0",
+              textAlign: "center",
+              cursor: "pointer",
+            }}
           >
             People Nearby
           </p>
           <p
-            style={{ margin: "8px 0", textAlign: "center", cursor: "pointer" }}
+            style={{
+              fontSize: "20px",
+              margin: "1em 0",
+              textAlign: "center",
+              cursor: "pointer",
+            }}
           >
             saved Messages
           </p>
           <p
-            style={{ margin: "8px 0", textAlign: "center", cursor: "pointer" }}
+            style={{
+              fontSize: "20px",
+              margin: "1em 0",
+              textAlign: "center",
+              cursor: "pointer",
+            }}
           >
             Settings
           </p>
           <p
-            style={{ margin: "8px 0", textAlign: "center", cursor: "pointer" }}
+            style={{
+              fontSize: "20px",
+              margin: "1em 0",
+              textAlign: "center",
+              cursor: "pointer",
+            }}
           >
             Invite Friends
           </p>
           <p
-            style={{ margin: "8px 0", textAlign: "center", cursor: "pointer" }}
+            style={{
+              fontSize: "20px",
+              margin: "1em 0",
+              textAlign: "center",
+              cursor: "pointer",
+            }}
           >
             Telegram Features
           </p>
@@ -143,7 +189,7 @@ function App() {
         }}
       >
         <div className="chat-list">
-          {page.map((page) => {
+          {page.map((page, current_i) => {
             return page.data.data.map((page, index) => {
               if (page.creator.name) {
                 const colors = ["red", "green", "orange", "brown", "steelblue"];
@@ -161,9 +207,26 @@ function App() {
                     onClick={() => {
                       setChatId(page.id);
                       setShow(!show);
+                      setActive(index);
+                      setCurrent(current_i);
                     }}
                   >
-                    <div style={{ display: "flex", alignItems: "center" }}>
+                    <div
+                      style={
+                        index == active && current_i == current
+                          ? {
+                              display: "flex",
+                              alignItems: "center",
+                              padding: "5px",
+                              backgroundColor: "silver",
+                            }
+                          : {
+                              display: "flex",
+                              alignItems: "center",
+                              padding: "5px",
+                            }
+                      }
+                    >
                       <div
                         style={{
                           display: "flex",
@@ -194,7 +257,7 @@ function App() {
             });
           })}
         </div>
-        <div className="chat-message">
+        <div className={show ? "chat-message d-none" : "chat-message"}>
           <div
             onClick={() => {
               setShow(!show);
@@ -216,16 +279,32 @@ function App() {
                     chat.sender_id == 1
                       ? {
                           margin: "15px 5px",
-                          backgroundColor: "slategrey",
+                          padding: "15px 10px",
+                          borderRadius: "10px",
+                          backgroundColor: "rgb(20, 20, 20)",
                           maxWidth: "60%",
                           alignSelf: "end",
                         }
-                      : { margin: "15px 5px", maxWidth: "60%" }
+                      : {
+                          margin: "15px 5px",
+                          padding: "15px 10px",
+                          borderRadius: "10px",
+                          backgroundColor: "rgb(20, 20, 20)",
+                          maxWidth: "60%",
+                        }
                   }
                   key={index}
                 >
                   {chat.sender.name ? (
-                    <h2>{chat.sender.name}</h2>
+                    <h2
+                      style={
+                        chat.sender_id == 1
+                          ? { color: "orange", marginBottom: "10px" }
+                          : { color: "red", marginBottom: "10px" }
+                      }
+                    >
+                      {chat.sender.name}
+                    </h2>
                   ) : (
                     <h2>Unknown User</h2>
                   )}

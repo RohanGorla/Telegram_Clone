@@ -7,6 +7,18 @@
   font-style: normal;
 }
 
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: white; 
+}
+ 
+::-webkit-scrollbar-thumb {
+  background: grey; 
+}
+
 .Telegram-main {
   min-height: 100%;
 }
@@ -26,7 +38,7 @@
 }
 
 nav {
-  padding: 10px 0;
+  padding: 8.5px 0;
   position: fixed;
   width: 100%;
   top: 0;
@@ -93,26 +105,25 @@ nav {
   justify-content: space-between;
 }
 
-.sidebar-button .back-button, .light-dark-button {
-  margin: 0px 20px;
+.light-dark-button {
+  margin: 30px 20px;
   cursor: pointer;
   width: 30px;
 }
 
+.back-button {
+  margin: 30px 20px;
+  cursor: pointer;
+  width: 20px;
+}
+
 .chat-back-button {
+  /* margin-top: 45px; */
   width: 30px;
   height: 30px;
   border-radius: 50%;
   background-color: white;
   cursor: pointer;
-}
-
-/* .light-dark-button {
-  width: 30px;
-} */
-
-.sidebar-show {
-
 }
 
 .sidebar-hide {
@@ -130,17 +141,24 @@ nav {
 
   .chat-list {
     width: 20%;
+    padding: 0px 10px;
   }
   
   .chat-message {
     width: 80%;
+    padding: 0px 10px;
   }
 
   .d-none {
     display: block;
   }
-  
+
   .hide {
     display: none;
+  }
+
+  .chat-list, .chat-message {
+    height: 100vh;
+    overflow-y: scroll;
   }
 }
